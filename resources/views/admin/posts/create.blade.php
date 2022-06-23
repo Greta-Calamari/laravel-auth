@@ -20,6 +20,15 @@
                 <input type="checkbox" {{old('published') ? 'checked' : ''}} class="form-check-input" id="published" name="published">
                 <label class="form-check-label" for="published">Pubblicato</label>
             </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label">category</label>
+                <select name="category" id="category">
+
+                    <option value=""></option>
+
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 

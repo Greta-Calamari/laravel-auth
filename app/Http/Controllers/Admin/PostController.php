@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use illuminate\Support\Str;
 use App\Post;
+use App\Category;
+
+
 
 class PostController extends Controller
 {
@@ -28,7 +31,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create',compact('categories'));
         
     }
 
@@ -42,11 +46,13 @@ class PostController extends Controller
     {
         $data = $request-> all();
         // dd($data);
+
         $newPost = new Post();
         $newPost->title=$data['title'];
         $slug = Str::of($data['title'])->slug("-");
         $newPost->content=$data['content'];
         $newPost->published = isset($data['published']);
+        $newPost->category_id=$data['category_id'];
         $count=1;
         while(Post::where('slug', $slug)->first()){
             $slug = Str::of($title)->slug("-") - "($count)";
@@ -81,7 +87,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.posts.edit');
+        $post= Post::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post','categories'));
+
         
     }
 
@@ -92,9 +101,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        if($post->title != $data['title']){
+            $post->title = $data['title'];
+
+        }
+
+
+
     }
 
     /**

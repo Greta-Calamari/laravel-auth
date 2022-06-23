@@ -24,6 +24,8 @@
         <td> <a href="{{route('admin.posts.show',$post->id)}}">{{$post->title}}</a> </td>
         <td>{{$post->created_at}}</td>
         <td><a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-primary">Modifica</a></td>
+        <td><a href="{{route('admin.posts.show',$post->id)}}" class="btn btn-primary">Visualizza</a></td>
+        <td><a href="" class="btn btn-primary">Cancella</a></td>
 
         
         

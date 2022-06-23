@@ -14,6 +14,19 @@
                 <label for="content" class="form-label">content</label>
                 <textarea name="content" id="content"  cols="30" rows="10">{{old('content')}}</textarea>
             </div>
+            
+            <div class="mb-3">
+                <label for="content" class="form-label">category</label>
+                  <select name="category_id" id="category_id" class="form-control">
+                    <option value="">select category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        
+                    @endforeach
+
+
+                </select>
+            </div>
 
 
             <div class="mb-3 form-check">
@@ -21,14 +34,6 @@
                 <label class="form-check-label" for="published">Pubblicato</label>
             </div>
 
-            <div class="mb-3">
-                <label for="content" class="form-label">category</label>
-                <select name="category" id="category">
-
-                    <option value=""></option>
-
-                </select>
-            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 

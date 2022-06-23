@@ -32,6 +32,9 @@
 
 
         </select>
+        @error('category_id')
+          <div class="alert alert-danger">{{message}}</div>
+        @enderror
     </div>
 
 

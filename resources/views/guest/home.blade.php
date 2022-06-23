@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Boolpress</title>
+        <title>Boolpresss</title>
 
         <!-- Fonts -->
         <link href="{{ asset('css/front.css') }}" rel="stylesheet">

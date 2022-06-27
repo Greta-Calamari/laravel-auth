@@ -2,11 +2,11 @@
 <main>
     <h1>Sono il Main</h1>
     <ul>
-        <li v-for="(post) in posts" :key="post.id">
+        <li v-for="(post,index) in posts" :key="index">
             {{post.title}}
-            <a href="#" @click="getoDetail(post.slug)">Vedi Dettaglio</a>
-            <span v-if="detail">
-                {{detail.slug}}
+            <a href="#" @click="getoDetail(post.slug, index)">Vedi Dettaglio</a>
+            <span v-if="post.detail">
+                {{post.detail.slug}}
             </span>
         </li>
     </ul>
@@ -20,14 +20,15 @@ export default {
     data(){
         return{
             posts:[],
-            detail:null,
+            
         }
     },
     methods:{
-        getoDetail(slug){
+        getoDetail(slug,index){
             axios.get('/api/posts/'+slug).then((response)=>{
             console.log(response.data);
-            this.detail = response.data;
+            this.posts[index].detil = response.data;
+            console.log(this.posts[index]);
         })
 
         }

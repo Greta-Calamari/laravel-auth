@@ -1979,17 +1979,17 @@ __webpack_require__.r(__webpack_exports__);
   name: 'MainComponent',
   data: function data() {
     return {
-      posts: [],
-      detail: null
+      posts: []
     };
   },
   methods: {
-    getoDetail: function getoDetail(slug) {
+    getoDetail: function getoDetail(slug, index) {
       var _this = this;
 
       axios.get('/api/posts/' + slug).then(function (response) {
         console.log(response.data);
-        _this.detail = response.data;
+        _this.posts[index].detil = response.data;
+        console.log(_this.posts[index]);
       });
     }
   },
@@ -2599,8 +2599,8 @@ var render = function () {
     _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.posts, function (post) {
-        return _c("li", { key: post.id }, [
+      _vm._l(_vm.posts, function (post, index) {
+        return _c("li", { key: index }, [
           _vm._v("\r\n            " + _vm._s(post.title) + "\r\n            "),
           _c(
             "a",
@@ -2608,18 +2608,18 @@ var render = function () {
               attrs: { href: "#" },
               on: {
                 click: function ($event) {
-                  return _vm.getoDetail(post.slug)
+                  return _vm.getoDetail(post.slug, index)
                 },
               },
             },
             [_vm._v("Vedi Dettaglio")]
           ),
           _vm._v(" "),
-          _vm.detail
+          post.detail
             ? _c("span", [
                 _vm._v(
                   "\r\n                " +
-                    _vm._s(_vm.detail.slug) +
+                    _vm._s(post.detail.slug) +
                     "\r\n            "
                 ),
               ])

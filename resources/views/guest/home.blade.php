@@ -10,7 +10,7 @@
     <title>Home page</title>
 </head>
 <body>
-    <header>
+    {{-- <header>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -65,11 +65,16 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> --}}
 
-    <main id="root"></main>
+    {{-- <main id="root">
 
-    <footer></footer>
+
+    </main>
+
+    <footer></footer> --}}
+
+    <div id="root"></div>
 
   <script src="{{asset('js/front.js')}}"></script>
 </body>

@@ -27,7 +27,7 @@ export default {
         getoDetail(slug,index){
             axios.get('/api/posts/'+slug).then((response)=>{
             console.log(response.data);
-            this.posts[index].detil = response.data;
+            this.posts[index].detail = response.data;
             console.log(this.posts[index]);
         })
 

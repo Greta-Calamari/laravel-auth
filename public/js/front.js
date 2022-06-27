@@ -1988,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/posts/' + slug).then(function (response) {
         console.log(response.data);
-        _this.posts[index].detil = response.data;
+        _this.posts[index].detail = response.data;
         console.log(_this.posts[index]);
       });
     }

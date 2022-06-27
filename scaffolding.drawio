@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="avuX6tN8_coUhezxWiyo" name="Page-1">
-        <mxGraphModel dx="1273" dy="609" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="562" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -73,14 +73,14 @@
                 <mxCell id="YnNii3DhfhroFcoP4JHG-32" value="&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;b&gt;Abilitare mass assignement nel model:&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;span&gt;//per singoli campi&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;protectd $fillable['name', 'description'];&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;//per tutti i campi&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;protected $guarded=[];&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;b&gt;Specificare nome tabella nel model:&lt;/b&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;protected $table='nome_tabella';&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left ; font-size: 10px&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#B09500;fillColor=#e3c800;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="540" y="800" width="260" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="php artisan make:migration update_posts_table_add_foreignkey --table=posts" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="26" value="php artisan make:migration update_posts_table_add_foreignkey --table=posts" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="15" y="1750" width="430" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="BvBdxhd0rVTqoUJPIA4A" name="Page-2">
-        <mxGraphModel dx="1238" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="562" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="dGOpuBiseX3lURQI40ha-0"/>
                 <mxCell id="dGOpuBiseX3lURQI40ha-1" parent="dGOpuBiseX3lURQI40ha-0"/>

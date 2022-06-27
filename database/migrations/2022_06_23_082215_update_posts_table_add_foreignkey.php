@@ -17,14 +17,11 @@ class UpdatePostsTableAddForeignkey extends Migration
             // $table->unsignedBigInteger('user_id');
 
             // $table->foreign('user_id')
-            //       ->references('id')
-            //       ->on('users');
-        // se rispetto le convenzioni di laravel nome campo singolare allora faccio questo sotto invece che sopra
-        $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete('set null');
-        $table->string('image')->nullable();
+            //     ->references('id')
+            //     ->on('users');
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
+            $table->string("image")->nullable();
 
-
-            
         });
     }
 
@@ -36,12 +33,9 @@ class UpdatePostsTableAddForeignkey extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['category_id']);
-            $table->dropColumn('category_id');
-            $table->dropColumn('image');
-            
-
-            
+          $table->dropForeign(['category_id']);
+          $table->dropColumn("category_id");
+          $table->dropColumn("image");
         });
     }
 }

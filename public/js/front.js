@@ -1971,19 +1971,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MainComponent',
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      detail: null
     };
   },
+  methods: {
+    getoDetail: function getoDetail(slug) {
+      var _this = this;
+
+      axios.get('/api/posts/' + slug).then(function (response) {
+        console.log(response.data);
+        _this.detail = response.data;
+      });
+    }
+  },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get('/api/posts').then(function (response) {
       console.log(response.data);
-      _this.posts = response.data;
+      _this2.posts = response.data;
     });
   }
 });
@@ -2586,7 +2601,29 @@ var render = function () {
       "ul",
       _vm._l(_vm.posts, function (post) {
         return _c("li", { key: post.id }, [
-          _vm._v("\r\n            " + _vm._s(post.title) + "\r\n        "),
+          _vm._v("\r\n            " + _vm._s(post.title) + "\r\n            "),
+          _c(
+            "a",
+            {
+              attrs: { href: "#" },
+              on: {
+                click: function ($event) {
+                  return _vm.getoDetail(post.slug)
+                },
+              },
+            },
+            [_vm._v("Vedi Dettaglio")]
+          ),
+          _vm._v(" "),
+          _vm.detail
+            ? _c("span", [
+                _vm._v(
+                  "\r\n                " +
+                    _vm._s(_vm.detail.slug) +
+                    "\r\n            "
+                ),
+              ])
+            : _vm._e(),
         ])
       }),
       0

@@ -17,6 +17,7 @@ const router = new VueRouter({
         {
             path:'/',
             name:'home',
+            meta:{nome:'Clelia'},
             component:HomeComponent,
         },
         {

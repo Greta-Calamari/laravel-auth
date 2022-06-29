@@ -1,6 +1,6 @@
 <template>
     <section >
-        <h1>Posts</h1>
+        <h1 class="text-center">Posts</h1>
         <div v-if="posts.length > 0" class="container">
             <!-- <li v-for="(post,index) in posts" :key="post.id" > -->
                 <!-- {{index}} - {{post.title}} -->

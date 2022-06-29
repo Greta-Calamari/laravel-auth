@@ -38977,7 +38977,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [_c("h1", [_vm._v("About")])])
+    return _c("section", [
+      _c("h1", { staticClass: "text-center" }, [_vm._v("About")]),
+    ])
   },
 ]
 render._withStripped = true
@@ -39008,7 +39010,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [_c("h1", [_vm._v("Contact")])])
+    return _c("section", [
+      _c("h1", { staticClass: "text-center" }, [_vm._v("Contact")]),
+    ])
   },
 ]
 render._withStripped = true
@@ -39039,7 +39043,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [_c("h1", [_vm._v("Home")])])
+    return _c("section", [
+      _c("h1", { staticClass: "text-center" }, [_vm._v("Home")]),
+    ])
   },
 ]
 render._withStripped = true
@@ -39070,7 +39076,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Page not found | 404")])])
+    return _c("div", [
+      _c("h1", { staticClass: "text-center" }, [
+        _vm._v("Page not found | 404"),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -39095,7 +39105,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("h1", [_vm._v("Posts")]),
+    _c("h1", { staticClass: "text-center" }, [_vm._v("Posts")]),
     _vm._v(" "),
     _vm.posts.length > 0
       ? _c("div", { staticClass: "container" }, [

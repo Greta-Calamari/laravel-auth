@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h1>Contact</h1>
+        <h1 class="text-center">Contact</h1>
     </section>
 </template>
 

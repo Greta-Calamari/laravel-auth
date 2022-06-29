@@ -16,7 +16,7 @@ class PostController extends Controller
     }
     public function show($slug){
         // dump($slug);
-        $post= Post::where('slug',$slug)->with(['category','tags'])->first();
+        $post= Post::where('slug',$slug)->with(['category','tags','comments'])->first();
         // alla fine di una query first che ci ritorna o oggetto o null
         if(empty($post)){
             return response()->json(['message'=> 'Post Not Found'],404);

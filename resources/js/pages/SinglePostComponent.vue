@@ -9,6 +9,25 @@
            <img :src="`/storage/${post.image}`" alt="">
             
         </div>
+        <div>
+            <form @submit.prevent='addComment()'>
+                <label for="username">Inserisci il nome</label>
+                <input type="text" v-model="formData.username">
+
+                <label for="content">Inserisci il contenuto</label>
+                <input type="text" v-model="formData.content">
+                <button type="submit">posta commento</button>
+            </form>
+        </div>
+        <div v-if='post.comments.lenght > 0'>
+            <h4>Commenti:</h4>
+            <div v-for='comment in post.comments' :key='comment.id'>
+                {{comment.content}}
+            </div>
+
+
+
+        </div>
     </section>
 </template>
 
@@ -18,12 +37,36 @@ export default {
     data(){
         return{
             post:null,
+            formData:{
+                username : '',
+                content:'',
+                post_id : '',
+
+            }
         }
+    },
+    methods:{
+        addComment(){
+            axios.post('/api/comments',this.formData)
+            .then((response)=>{
+                console.log(response);
+                this.post.comments.push(response.data);
+
+            })
+            .catch((error)=>{
+                console.log(error);
+
+                
+            })
+
+        }
+
     },
     mounted(){
         const slug = this.$route.params.slug;
         axios.get(`/api/posts/${slug}`).then((response)=>{
             this.post = response.data;
+            this.formData.post_id=this.post_id;
         }).catch((error)=> {
             // console.log(error);
             this.$router.push({name:'page-404'});

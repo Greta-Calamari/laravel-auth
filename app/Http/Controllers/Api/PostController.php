@@ -10,12 +10,17 @@ class PostController extends Controller
 {
     public function index(){
         $posts = Post::all();
+        // $posts = Post::with('category')->get();
         return response()->json($posts);
+
     }
     public function show($slug){
         // dump($slug);
         $post= Post::where('slug',$slug)->with(['category','tags'])->first();
         // alla fine di una query first che ci ritorna o oggetto o null
+        if(empty($post)){
+            return response()->json(['message'=> 'Post Not Found'],404);
+        }
         return response()->json($post);
 
 

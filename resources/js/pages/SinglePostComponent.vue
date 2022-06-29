@@ -24,6 +24,9 @@ export default {
         const slug = this.$route.params.slug;
         axios.get(`/api/posts/${slug}`).then((response)=>{
             this.post = response.data;
+        }).catch(function(error){
+            // console.log(error);
+            this.$router.push({name:'page-404'});
         })
     }
 }

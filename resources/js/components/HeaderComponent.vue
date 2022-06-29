@@ -1,10 +1,10 @@
 <template>
 <header>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li> <a href="/admin">Area riservata</a> </li>
+    
+        <!-- <li><a href="/">Home</a></li>
+        <li> <a href="/admin">Area riservata</a> </li> -->
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <!-- <a class="navbar-brand" href="">Boolpress</a> -->
                 <router-link :to="{name:menuItem[0].routeName}" class="navbar-brand">{{menuItem[0].label}}</router-link>
 
@@ -21,9 +21,12 @@
                         </div>
                         
                     </div>
+                    <span>
+                        <a class="nav-link" href="/admin">Area Riservata</a>
+                    </span>
                 </div>
         </nav>
-    </ul>
+    
     
 
     
@@ -68,10 +71,14 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" >
 
-.router-link-active{
-    color: red;
+
+
+
+.router-link-exact-active{
+    color:blue !important;
 }
+
 
 </style>

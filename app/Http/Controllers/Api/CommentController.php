@@ -23,10 +23,6 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,16 +32,15 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->all();
+        $data = $request->all();
+        //echo response()->json($data);
+        
         $newComment = new Comment();
-        $newComment -> username = $data['username'];
-        $newComment -> content = $data['content'];
-        $newComment -> post_id = $data['post_id'];
+        $newComment->username = $data['username'];
+        $newComment->content = $data['content'];
+        $newComment->post_id = $data['post_id'];
         $newComment->save();
-
         return response()->json($newComment);
-
-
     }
 
     /**
@@ -65,7 +60,6 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
 
     /**
      * Update the specified resource in storage.

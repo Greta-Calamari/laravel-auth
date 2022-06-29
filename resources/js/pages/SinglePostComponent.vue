@@ -21,7 +21,7 @@
                 <button type="submit">posta commento</button>
             </form>
         </div>
-        <div v-if='post.comments.lenght > 0'>
+        <div v-if='post.comments.length > 0'>
             <h4>Commenti:</h4>
             <div v-for='comment in post.comments' :key='comment.id'>
                 {{ comment.username }} : {{comment.content}}
@@ -49,6 +49,8 @@ export default {
     },
     methods:{
         addComment(){
+
+         
             axios.post('/api/comments',this.formData)
             .then((response)=>{
                 console.log(response);
@@ -68,7 +70,7 @@ export default {
         const slug = this.$route.params.slug;
         axios.get(`/api/posts/${slug}`).then((response)=>{
             this.post = response.data;
-            this.formData.post_id=this.post_id;
+            this.formData.post_id = this.post.id;
         }).catch((error)=> {
             // console.log(error);
             this.$router.push({name:'page-404'});

@@ -8,22 +8,88 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function index(){
-        $posts = Post::all();
-        // $posts = Post::with('category')->get();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        // $posts = Post::all();
+        $posts = Post::with('category')->get();
+        // dd($posts);
+        // $posts = Post::where("published", true)->get();
         return response()->json($posts);
-
     }
-    public function show($slug){
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug)
+    {
         // dump($slug);
-        $post= Post::where('slug',$slug)->with(['category','tags','comments'])->first();
-        // alla fine di una query first che ci ritorna o oggetto o null
-        if(empty($post)){
-            return response()->json(['message'=> 'Post Not Found'],404);
+        $post = Post::where("slug", $slug)->with(["category", "tags", "comments"])->first();
+        if (empty($post)) {
+            return response()->json(['Message' => "Post not found"], 404);
         }
         return response()->json($post);
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

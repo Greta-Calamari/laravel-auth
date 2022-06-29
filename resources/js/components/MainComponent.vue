@@ -1,5 +1,5 @@
 <template>
-<main>
+<main class="color-main">
     <router-view>
     </router-view>
 </main>
@@ -38,5 +38,8 @@ export default {
 
 
 <style lang="scss">
+.color-main{
+    background-color:#3490dc;
+}
 
 </style>

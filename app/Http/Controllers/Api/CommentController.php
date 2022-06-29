@@ -41,7 +41,7 @@ class CommentController extends Controller
         $newComment -> username = $data['username'];
         $newComment -> content = $data['content'];
         $newComment -> post_id = $data['post_id'];
-        $newContent->save();
+        $newComment->save();
 
         return response()->json($newComment);
 

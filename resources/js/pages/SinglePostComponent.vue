@@ -9,13 +9,14 @@
            <img :src="`/storage/${post.image}`" alt="">
             
         </div>
+        
         <div>
             <form @submit.prevent='addComment()'>
                 <label for="username">Inserisci il nome</label>
                 <input type="text" v-model="formData.username">
 
                 <label for="content">Inserisci il contenuto</label>
-                <input type="text" v-model="formData.content">
+                <textarea type="text" v-model="formData.content"></textarea>
                 
                 <button type="submit">posta commento</button>
             </form>
@@ -23,12 +24,12 @@
         <div v-if='post.comments.lenght > 0'>
             <h4>Commenti:</h4>
             <div v-for='comment in post.comments' :key='comment.id'>
-                {{comment.content}}
+                {{ comment.username }} : {{comment.content}}
             </div>
-
-
-
         </div>
+
+
+
     </section>
 </template>
 
@@ -43,8 +44,8 @@ export default {
                 content:'',
                 post_id : '',
 
-            }
-        }
+            },
+        };
     },
     methods:{
         addComment(){

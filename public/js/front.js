@@ -2254,6 +2254,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SinglePostComponent',
   data: function data() {
@@ -39142,29 +39168,47 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.post
-    ? _c("section", [
-        _c("div", [
-          _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.post.content))]),
-          _vm._v(" "),
-          _vm.post.tags
-            ? _c(
-                "ul",
-                _vm._l(_vm.post.tags, function (tag) {
-                  return _c("li", { key: tag.id }, [_vm._v(_vm._s(tag.name))])
-                }),
-                0
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("img", { attrs: { src: "/storage/" + _vm.post.image, alt: "" } }),
+    ? _c("section", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "card mt-4", staticStyle: { width: "18rem" } },
+            [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: "/storage/" + _vm.post.image, alt: "" },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(_vm.post.title)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(_vm.post.content)),
+                ]),
+                _vm._v(" "),
+                _vm.post.tags
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.post.tags, function (tag) {
+                        return _c("li", { key: tag.id }, [
+                          _vm._v(_vm._s(tag.name)),
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+              ]),
+            ]
+          ),
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "row" }, [
           _c(
             "form",
             {
+              attrs: { form: "" },
               on: {
                 submit: function ($event) {
                   $event.preventDefault()
@@ -39173,83 +39217,94 @@ var render = function () {
               },
             },
             [
-              _c("label", { attrs: { for: "username" } }, [
-                _vm._v("Inserisci il nome"),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "username" } }, [
+                  _vm._v("Inserisci il nome"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.username,
+                      expression: "formData.username",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.formData.username },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "username", $event.target.value)
+                    },
+                  },
+                }),
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.username,
-                    expression: "formData.username",
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "content" } }, [
+                  _vm._v("Inserisci il contenuto"),
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.content,
+                      expression: "formData.content",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "exampleFormControlTextarea1", rows: "3" },
+                  domProps: { value: _vm.formData.content },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "content", $event.target.value)
+                    },
                   },
-                ],
-                attrs: { type: "text" },
-                domProps: { value: _vm.formData.username },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "username", $event.target.value)
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "content" } }, [
-                _vm._v("Inserisci il contenuto"),
+                }),
               ]),
               _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.content,
-                    expression: "formData.content",
-                  },
-                ],
-                attrs: { type: "text" },
-                domProps: { value: _vm.formData.content },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "content", $event.target.value)
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("button", { attrs: { type: "submit" } }, [
-                _vm._v("posta commento"),
-              ]),
+              _c(
+                "button",
+                { staticClass: "btn btn-danger", attrs: { type: "submit" } },
+                [_vm._v("Submit")]
+              ),
             ]
           ),
         ]),
         _vm._v(" "),
         _vm.post.comments.length > 0
-          ? _c(
-              "div",
-              [
-                _c("h4", [_vm._v("Commenti:")]),
-                _vm._v(" "),
-                _vm._l(_vm.post.comments, function (comment) {
-                  return _c("div", { key: comment.id }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(comment.username) +
-                        " : " +
-                        _vm._s(comment.content) +
-                        "\n        "
-                    ),
-                  ])
-                }),
-              ],
-              2
-            )
+          ? _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "mt-4" },
+                [
+                  _c("h4", [_vm._v("Commenti:")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.post.comments, function (comment) {
+                    return _c("div", { key: comment.id }, [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(comment.username) +
+                          " : " +
+                          _vm._s(comment.content) +
+                          "\n            "
+                      ),
+                    ])
+                  }),
+                ],
+                2
+              ),
+            ])
           : _vm._e(),
       ])
     : _vm._e()

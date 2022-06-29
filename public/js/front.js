@@ -2195,7 +2195,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.post = response.data;
     })["catch"](function (error) {
       // console.log(error);
-      this.$router.push({
+      _this.$router.push({
         name: 'page-404'
       });
     });

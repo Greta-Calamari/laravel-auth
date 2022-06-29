@@ -16,6 +16,7 @@
 
                 <label for="content">Inserisci il contenuto</label>
                 <input type="text" v-model="formData.content">
+                
                 <button type="submit">posta commento</button>
             </form>
         </div>

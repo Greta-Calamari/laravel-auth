@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Comment;
+use Illuminate\Support\Facades\Validator;
+use App\Mail\CommentMail;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
@@ -18,11 +21,7 @@ class CommentController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
 
     /**
      * Store a newly created resource in storage.
@@ -33,13 +32,31 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        //echo response()->json($data);
-        
+        $validator = Validator::make($data, [
+            'username' => 'nullable|string|max:50',
+            'content' => 'string|required',
+            'post_id' => 'exists:posts,id'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                "success" => false,
+                "errors" => $validator->errors(),
+                "data" => $data
+            ], 400);
+        }
         $newComment = new Comment();
-        $newComment->username = $data['username'];
+        if( !empty($data["username"]) ) {
+            $newComment->username = $data["username"];
+        }
         $newComment->content = $data['content'];
         $newComment->post_id = $data['post_id'];
         $newComment->save();
+         // invio la notifica email del commento
+        Mail::to("greta_calamari@hotmail.it")->send(new CommentMail($newComment->post));
+        //  return response()->json([
+        //     "success" => true
+        // ]);
         return response()->json($newComment);
     }
 
@@ -54,12 +71,6 @@ class CommentController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     /**
      * Update the specified resource in storage.

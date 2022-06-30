@@ -1,6 +1,6 @@
 <template>
     <section v-if="post" class="container">
-        <div class="row">
+        <div class="row ">
             <div class="card mt-4" style="width: 18rem;">
                 
                 <img :src="`/storage/${post.image}`" alt="" class="card-img-top">
@@ -22,9 +22,17 @@
                             <label for="username">Inserisci il nome</label>
                         <input  class="form-control" type="text" v-model="formData.username">
                         </div>
+                    
                         <div class="form-group">
                             <label for="content">Inserisci il contenuto</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="formData.content"></textarea>
+                        </div>
+                        <div v-if="formErrors.content" style="background: red; color: white">
+                            <ul>
+                                <li v-for="(error, index) in formErrors.content" :key="index">
+                                    {{error}}
+                                </li>
+                            </ul>
                         </div>
                         
                         <button  type="submit" class="btn btn-danger">Submit</button>
@@ -33,27 +41,17 @@
         </div>
 
                         
-        <div v-if='post.comments.length > 0' class="row">
-            <div class="mt-4">
+        <div v-if='post.comments.length > 0' class="row comments">
+            <div class="mt-4 mx-4">
                 <h4>Commenti:</h4>
+                
                 <div v-for='comment in post.comments' :key='comment.id'>
                     {{ comment.username }} : {{comment.content}}
                 </div>
 
             </div>
         </div>
-        <!-- <div>
-            <form @submit.prevent='addComment()'>
-                <label for="username">Inserisci il nome</label>
-                <input type="text" v-model="formData.username">
-
-                <label for="content">Inserisci il contenuto</label>
-                <textarea type="text" v-model="formData.content"></textarea>
-                
-                <button type="submit">posta commento</button>
-            </form>
-        </div> -->
-
+       
 
 
     </section>
@@ -71,6 +69,8 @@ export default {
                 post_id : '',
 
             },
+            commentSent:false,
+            formErrors:{},
         };
     },
     methods:{
@@ -79,12 +79,15 @@ export default {
          
             axios.post('/api/comments',this.formData)
             .then((response)=>{
-                console.log(response);
+                console.log(response.data);
+                this.formData.username='';
+                this.formData.content = "";
                 this.post.comments.push(response.data);
 
             })
             .catch((error)=>{
                 console.log(error);
+                this.formErrors= error.response.data.errors;
 
                 
             })
@@ -106,5 +109,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+.comments{
+    margin-top: 20px;
+    background-color: white;
+    
+}
 
 </style>

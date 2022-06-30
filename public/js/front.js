@@ -6738,7 +6738,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer {\n  background-color: rgba(0, 21, 47, 0.7490196078);\n  height: 500px;\n}\n.marg {\n  margin-top: 150px;\n}\n.footer-basic {\n  padding: 40px 0;\n  background-color: #ffffff;\n  color: #4b4c4d;\n}\n.footer-basic ul {\n  padding: 0;\n  list-style: none;\n  text-align: center;\n  font-size: 18px;\n  line-height: 1.6;\n  margin-bottom: 0;\n}\n.footer-basic li {\n  padding: 0 10px;\n}\n.footer-basic ul a {\n  color: inherit;\n  text-decoration: none;\n  opacity: 0.8;\n}\n.footer-basic ul a:hover {\n  opacity: 1;\n}\n.footer-basic .social {\n  text-align: center;\n  padding-bottom: 25px;\n}\n.footer-basic .social > a {\n  font-size: 24px;\n  width: 40px;\n  height: 40px;\n  line-height: 40px;\n  display: inline-block;\n  text-align: center;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  margin: 0 8px;\n  color: inherit;\n  opacity: 0.75;\n}\n.footer-basic .social > a:hover {\n  opacity: 0.9;\n}\n.footer-basic .copyright {\n  margin-top: 15px;\n  text-align: center;\n  font-size: 13px;\n  color: #aaa;\n  margin-bottom: 0;\n}", ""]);
+exports.push([module.i, "footer {\n  background-color: rgba(0, 21, 47, 0.7490196078);\n}\n.marg {\n  margin-top: 100px;\n}\n.footer-basic {\n  padding: 40px 0;\n  background-color: #ffffff;\n  color: #4b4c4d;\n}\n.footer-basic ul {\n  padding: 0;\n  list-style: none;\n  text-align: center;\n  font-size: 18px;\n  line-height: 1.6;\n  margin-bottom: 0;\n}\n.footer-basic li {\n  padding: 0 10px;\n}\n.footer-basic ul a {\n  color: inherit;\n  text-decoration: none;\n  opacity: 0.8;\n}\n.footer-basic ul a:hover {\n  opacity: 1;\n}\n.footer-basic .social {\n  text-align: center;\n  padding-bottom: 25px;\n}\n.footer-basic .social > a {\n  font-size: 24px;\n  width: 40px;\n  height: 40px;\n  line-height: 40px;\n  display: inline-block;\n  text-align: center;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  margin: 0 8px;\n  color: inherit;\n  opacity: 0.75;\n}\n.footer-basic .social > a:hover {\n  opacity: 0.9;\n}\n.footer-basic .copyright {\n  margin-top: 15px;\n  text-align: center;\n  font-size: 13px;\n  color: #aaa;\n  margin-bottom: 0;\n}", ""]);
 
 // exports
 
@@ -6776,7 +6776,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".color-main {\n  background-color: #3490dc;\n}", ""]);
+exports.push([module.i, "main {\n  height: 100px;\n}\n.color-main {\n  background-color: #3490dc;\n}", ""]);
 
 // exports
 

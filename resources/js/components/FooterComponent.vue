@@ -47,10 +47,10 @@ export default {
 <style lang="scss">
 footer{
     background-color: #00152fbf;
-    height: 500px;
+    
 }
 .marg{
-    margin-top: 150px;
+    margin-top: 100px;
 }
 .footer-basic {
   padding:40px 0;

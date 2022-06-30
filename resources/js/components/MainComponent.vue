@@ -38,6 +38,10 @@ export default {
 
 
 <style lang="scss">
+
+main{
+    height: 100px;
+}
 .color-main{
     background-color:#3490dc;
 }

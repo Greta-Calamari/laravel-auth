@@ -6776,7 +6776,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "main {\n  height: 100px;\n}\n.color-main {\n  background-color: #3490dc;\n}", ""]);
+exports.push([module.i, ".color-main {\n  background-color: #3490dc;\n}", ""]);
 
 // exports
 
@@ -39044,7 +39044,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", [
-      _c("h1", { staticClass: "text-center" }, [_vm._v("Home")]),
+      _c("h1", { staticClass: "text-center p-4" }, [_vm._v("Home")]),
     ])
   },
 ]

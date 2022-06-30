@@ -29,17 +29,20 @@
                                 <li>{{ $item->name }}</li>
                             @endforeach
                         </ul>
-                        <div class="d-flex align-items-start">
-                            <a href="{{ route('admin.posts.edit', $post->id) }}"
-                                class="btn btn-primary mr-2">Edit</a>
-                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    onclick="boolpress.openModal(event, {{ $post->id }})"
-                                    class="btn btn-warning delete">Delete</button>
-                            </form>
-                        </div>
+                        {{-- @if ({{auth()->user()->id == $post->user_id}}) --}}
+                            <div class="d-flex align-items-start">
+                                <a href="{{ route('admin.posts.edit', $post->id) }}"
+                                    class="btn btn-primary mr-2">Edit</a>
+                                <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        onclick="boolpress.openModal(event, {{ $post->id }})"
+                                        class="btn btn-warning delete">Delete</button>
+                                </form>
+                            </div>
+                            
+                        {{-- @endif --}}
                     </div>
                 </div>
             </div>

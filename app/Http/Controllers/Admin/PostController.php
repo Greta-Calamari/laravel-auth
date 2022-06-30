@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -17,7 +19,7 @@ class PostController extends Controller
         "content" => "required",
         "published" => "sometimes|accepted",
         "category_id" => "nullable|exists:categories,id",
-        "image" => "nullable|mimes:jpeg,bmp,png,svg,jpg",
+        "image" => "nullable|mimes:jpeg,bmp,png,svg,jpg,webp",
         'tags'=> "nullable|exists:tags,id"
     ];
     /**
@@ -82,6 +84,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        // $currentUser=Auth::user();
+        // if($currentUser->id != $post->user_id && $currentUser->id != 1){
+            //     abort(403);
+            // }
         $post = Post::findOrFail($id);
         return view('admin.posts.show', compact('post'));
     }

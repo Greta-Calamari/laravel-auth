@@ -2123,8 +2123,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -39215,37 +39213,44 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("h1", [_vm._v(_vm._s(_vm.category.name))]),
+    _c("h1", { staticClass: "text-center" }, [
+      _vm._v(_vm._s(_vm.category.name)),
+    ]),
     _vm._v(" "),
-    _vm.category && _vm.category.postst.length > 0
-      ? _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row " }, [
-            _c(
+    _vm.category && _vm.category.posts.length > 0
+      ? _c(
+          "div",
+          { staticClass: "container" },
+          _vm._l(_vm.category.posts, function (post, index) {
+            return _c(
               "div",
-              { staticClass: "d-flex flex-wrap g-3 m-b" },
-              _vm._l(_vm.category.posts, function (post, index) {
-                return _c(
-                  "div",
-                  {
-                    key: post.id,
-                    staticClass: "card",
-                    staticStyle: { width: "18rem" },
-                  },
-                  [
+              { key: index, staticClass: "row justify-content-center" },
+              [
+                _c("div", { staticClass: "col-8 my-3" }, [
+                  _c("div", { staticClass: "card" }, [
                     _c(
                       "div",
-                      { staticClass: "card-body" },
+                      {
+                        staticClass:
+                          "title-box p-2 rounded-top text-light text-center",
+                      },
+                      [_c("h4", [_vm._v(_vm._s(post.title))])]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "p-2" },
                       [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v(_vm._s(index) + " - " + _vm._s(post.title)),
-                        ]),
+                        _c("p", {
+                          domProps: { innerHTML: _vm._s(post.content) },
+                        }),
                         _vm._v(" "),
                         _c(
                           "router-link",
                           {
                             attrs: {
                               to: {
-                                name: "category",
+                                name: "single-post",
                                 params: { slug: post.slug },
                               },
                             },
@@ -39255,13 +39260,13 @@ var render = function () {
                       ],
                       1
                     ),
-                  ]
-                )
-              }),
-              0
-            ),
-          ]),
-        ])
+                  ]),
+                ]),
+              ]
+            )
+          }),
+          0
+        )
       : _vm._e(),
   ])
 }

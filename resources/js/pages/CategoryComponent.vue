@@ -1,24 +1,22 @@
 <template>
     <section>
-        <h1>{{category.name}}</h1>
-        <div class="container" v-if="category && category.postst.length > 0">
-            <div class="row ">
-                    <div class="d-flex flex-wrap g-3 m-b">
-                        <div class="card" style="width: 18rem;" v-for="(post,index) in category.posts" :key="post.id">
-                                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                <div class="card-body">
-                                    <h5 class="card-title">{{index}} - {{post.title}}</h5>
-                                    <router-link :to="{ name:'category', params:{slug:post.slug} }">Visualizza post</router-link>
-                                    
-                                </div>
-                        </div>
-
+    <h1 class="text-center">{{category.name}}</h1>
+    <div class="container" v-if="category && category.posts.length > 0">
+        <div class="row justify-content-center" v-for="(post,index) in category.posts" :key="index">
+            <div class="col-8 my-3">
+                <div class= "card">
+                    <div class="title-box p-2 rounded-top text-light text-center">
+                        <h4>{{post.title}}</h4>
                     </div>
-
+                    <div class="p-2">
+                        <p v-html="post.content"></p>
+                        <router-link :to="{ name:'single-post', params:{slug: post.slug} }" >Visualizza post</router-link>
+                    </div>
                 </div>
-
+            </div>
         </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <script>

@@ -2212,6 +2212,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomeComponent',
@@ -2221,8 +2225,20 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       categories: [],
-      posts: []
+      posts: [],
+      carrello: null
     };
+  },
+  methods: {
+    addtoCart: function addtoCart(prodotto) {
+      var price = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 300;
+      window.localStorage.setItem('nomeprodotto', prodotto);
+      window.localStorage.setItem('prezzo', price);
+      this.carrello = {
+        nomeprodotto: prodotto,
+        prezzo: price
+      };
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -2237,6 +2253,10 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log(error);
     });
+    this.carrello = {
+      nomeprodotto: window.localStorage.getItem('nomeprodotto'),
+      prezzo: window.localStorage.getItem('prezzo')
+    };
   }
 });
 
@@ -8537,6 +8557,30 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "container" }, [
+    _c(
+      "button",
+      {
+        on: {
+          click: function ($event) {
+            return _vm.addtoCart(_vm.posts[0].title)
+          },
+        },
+      },
+      [_vm._v("aggiungi al carrello")]
+    ),
+    _vm._v(" "),
+    _vm.carrello
+      ? _c("div", { staticClass: "card" }, [
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.carrello.nomeprodotto) +
+              " : euro " +
+              _vm._s(_vm.carrello.prezzo) +
+              "\n    "
+          ),
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-3 p-3" }, [
         _c("nav", [

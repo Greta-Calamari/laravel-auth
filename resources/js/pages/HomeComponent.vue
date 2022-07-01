@@ -1,5 +1,9 @@
 <template>
     <section class="container">
+        <button @click="addtoCart(posts[0].title)">aggiungi al carrello</button>
+        <div class="card" v-if="carrello">
+            {{carrello.nomeprodotto}} : euro {{carrello.prezzo}}
+        </div>
         <div class="row">
             <div class="col-3 p-3">
                 <nav>
@@ -44,8 +48,20 @@ export default {
         return{
             categories:[],
             posts:[],
+            carrello:null,
         }
     },
+    methods:{
+        addtoCart(prodotto,price = 300){
+            window.localStorage.setItem('nomeprodotto', prodotto);
+            window.localStorage.setItem('prezzo', price);
+            this.carrello = {nomeprodotto: prodotto,prezzo:price}
+
+        }
+
+
+    },
+    
     mounted(){
         axios.get('/api/categories').then((res)=>{
             this.categories = res.data;
@@ -59,6 +75,8 @@ export default {
             console.log(error);
 
         });
+        this.carrello = {nomeprodotto: window.localStorage.getItem('nomeprodotto'), prezzo :window.localStorage.getItem('prezzo') }
+        
 
     }
 }

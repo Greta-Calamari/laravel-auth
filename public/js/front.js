@@ -2248,8 +2248,11 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log(error);
     });
-    axios.get('/api/posts/').then(function (res) {
-      _this.posts = res.data.slice(0, 3);
+    axios.get('/api/posts/images').then(function (res) {
+      //this.posts = res.data.slice(0,3);
+      _this.posts = res.data.filter(function (post) {
+        return post.image != null;
+      });
     })["catch"](function (error) {
       console.log(error);
     });
@@ -8630,14 +8633,12 @@ var render = function () {
                     },
                     [
                       _c("img", {
-                        staticClass: "img-fluid",
+                        staticClass: "w-100",
                         attrs: {
                           src: "/storage/" + post.image,
                           alt: post.title,
                         },
                       }),
-                      _vm._v(" "),
-                      _c("h3", [_vm._v(_vm._s(post.title))]),
                     ]
                   )
                 }),

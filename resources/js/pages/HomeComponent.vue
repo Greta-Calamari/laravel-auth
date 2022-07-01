@@ -23,9 +23,9 @@
                 <div id="app">
                     <agile>
                         <div class="slide" v-for="(post,index) in posts" :key="index" :class="`slide--${index}`">
-                        <img :src="`/storage/${post.image}`" class="img-fluid" :alt="post.title">
-                        <h3>{{ post.title }}</h3>
+                            <img :src="`/storage/${post.image}`" class="w-100" :alt="post.title">
                         </div>
+                            <!-- <h3>{{ post.title }}</h3> -->
                         <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
                         <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
                     </agile>
@@ -69,8 +69,9 @@ export default {
             console.log(error);
 
         });
-        axios.get('/api/posts/').then((res)=>{
-            this.posts = res.data.slice(0,3);
+        axios.get('/api/posts/images').then((res)=>{
+            //this.posts = res.data.slice(0,3);
+            this.posts = res.data.filter( (post) => post.image != null);
         }).catch((error)=>{
             console.log(error);
 

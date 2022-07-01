@@ -13,12 +13,26 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $posts = Post::all();
-        $posts = Post::with('category')->get();
+        // dd($request->query('category'));
+        if($request->query('category')){
+
+            $posts = Post::where('category_id',$request->query('category'))->get();
+            
+        }else{
+            $posts = Post::all();
+
+        }
+        return response()->json($posts);
+        // $posts = Post::with('category')->get();
         // dd($posts);
         // $posts = Post::where("published", true)->get();
+    }
+
+    public function postWithImage()
+    {
+        $posts = Post::whereNotNull("image")->orderBy('id', 'desc')->take(5)->get();//
         return response()->json($posts);
     }
 

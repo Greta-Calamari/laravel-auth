@@ -16,32 +16,30 @@
             </div>
             <div class="col-9">
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" v-for="post in posts" :key="post.id">
-                            <img :src="`/storage/${post.image}`" class="d-block w-100" alt="...">
-                            </div>
-                            
+                <div id="app">
+                    <agile>
+                        <div class="slide" v-for="(post,index) in posts" :key="index" :class="`slide--${index}`">
+                        <img :src="`/storage/${post.image}`" class="img-fluid" :alt="post.title">
+                        <h3>{{ post.title }}</h3>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </button>
+                        <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
+                        <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
+                    </agile>
                 </div>
-
             </div>
+
         </div>
         
     </section>
 </template>
 
 <script>
+import {VueAgile} from 'vue-agile';
 export default {
     name:'HomeComponent',
+    components:{
+        agile:VueAgile
+    },
     data(){
         return{
             categories:[],
@@ -72,4 +70,86 @@ li{
     line-height: 40px;
 }
 
+#app {
+  display: flex;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 30px;
+}
+
+.agile {
+  width: 100%;
+}
+.agile__actions {
+  margin-top: 20px;
+}
+.agile__nav-button {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 24px;
+  transition-duration: 0.3s;
+}
+.agile__nav-button:hover {
+  color: #888;
+}
+.agile__dot {
+  margin: 0 10px;
+}
+.agile__dot button {
+  background-color: #eee;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  height: 10px;
+  font-size: 0;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  transition-duration: 0.3s;
+  width: 10px;
+}
+.agile__dot--current button, .agile__dot:hover button {
+  background-color: #888;
+}
+
+.slide {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+}
+.slide h3 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+// .slide--1 {
+//   background-color: #f1c40f;
+// }
+
+// .slide--2 {
+//   background-color: #e67e22;
+// }
+
+// .slide--3 {
+//   background-color: #e74c3c;
+// }
+
+// .slide--4 {
+//   background-color: #9b59b6;
+// }
+
+// .slide--5 {
+//   background-color: #3498db;
+// }
+
+// .slide--6 {
+//   background-color: #2ecc71;
+// }
 </style>
